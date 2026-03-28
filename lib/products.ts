@@ -1,0 +1,180 @@
+export interface Product {
+  id: string
+  name: string
+  category: string
+  price: number
+  description: string
+  image: string
+  weight: string
+  origin: string
+  inStock: boolean
+}
+
+export const categories = [
+  'All Products',
+  'Fish',
+  'Shrimp',
+  'Crab',
+  'Shellfish',
+]
+
+export const products: Product[] = [
+  // Fish
+  {
+    id: 'salmon-001',
+    name: 'Fresh Atlantic Salmon',
+    category: 'Fish',
+    price: 9750,
+    description: 'Premium quality Atlantic salmon fillets, rich in omega-3 fatty acids. Perfect for grilling or baking.',
+    image: '/images/salmon.jpg',
+    weight: '500g',
+    origin: 'Atlantic Ocean',
+    inStock: true,
+  },
+  {
+    id: 'tuna-001',
+    name: 'Wild Caught Tuna Steak',
+    category: 'Fish',
+    price: 11310,
+    description: 'Grade-A tuna steaks, perfect for searing. Caught using sustainable fishing methods.',
+    image: '/images/tuna.jpg',
+    weight: '400g',
+    origin: 'Pacific Ocean',
+    inStock: true,
+  },
+  {
+    id: 'cod-001',
+    name: 'Norwegian Cod Fillets',
+    category: 'Fish',
+    price: 7800,
+    description: 'Mild and flaky cod fillets. Excellent for frying, baking, or steaming.',
+    image: '/images/cod.jpg',
+    weight: '600g',
+    origin: 'Norwegian Waters',
+    inStock: true,
+  },
+  {
+    id: 'sea-bass-001',
+    name: 'Mediterranean Sea Bass',
+    category: 'Fish',
+    price: 10530,
+    description: 'Delicate white fish with a subtle nutty flavor. Ideal for whole roasting.',
+    image: '/images/sea-bass.jpg',
+    weight: '800g',
+    origin: 'Mediterranean Sea',
+    inStock: true,
+  },
+  // Shrimp
+  {
+    id: 'shrimp-large-001',
+    name: 'Jumbo Tiger Shrimp',
+    category: 'Shrimp',
+    price: 8970,
+    description: 'Large, succulent tiger shrimp. Perfect for grilling, stir-frying, or seafood platters.',
+    image: '/images/shrimp-jumbo.jpg',
+    weight: '500g',
+    origin: 'South Asian Waters',
+    inStock: true,
+  },
+  {
+    id: 'shrimp-medium-001',
+    name: 'Medium White Shrimp',
+    category: 'Shrimp',
+    price: 7410,
+    description: 'Sweet and tender white shrimp. Great for pasta, risotto, or traditional preparation.',
+    image: '/images/shrimp-white.jpg',
+    weight: '500g',
+    origin: 'Indian Ocean',
+    inStock: true,
+  },
+  {
+    id: 'shrimp-vannamei-001',
+    name: 'Vannamei Shrimp',
+    category: 'Shrimp',
+    price: 7800,
+    description: 'Farm-raised Vannamei shrimp with mild flavor. Sustainable and responsibly sourced.',
+    image: '/images/shrimp-vannamei.jpg',
+    weight: '500g',
+    origin: 'Southeast Asia',
+    inStock: true,
+  },
+  // Crab
+  {
+    id: 'crab-king-001',
+    name: 'Alaskan King Crab Legs',
+    category: 'Crab',
+    price: 17940,
+    description: 'Premium king crab legs with sweet, tender meat. Perfect for special occasions.',
+    image: '/images/crab-king.jpg',
+    weight: '1kg',
+    origin: 'Alaskan Waters',
+    inStock: true,
+  },
+  {
+    id: 'crab-blue-001',
+    name: 'Fresh Blue Crab',
+    category: 'Crab',
+    price: 12870,
+    description: 'Live blue crabs with sweet, delicate meat. Perfect for steaming or boiling.',
+    image: '/images/crab-blue.jpg',
+    weight: '1.5kg (2 crabs)',
+    origin: 'Atlantic Coast',
+    inStock: true,
+  },
+  {
+    id: 'crab-dungeness-001',
+    name: 'Dungeness Crab',
+    category: 'Crab',
+    price: 14040,
+    description: 'Premium Dungeness crab with rich, sweet flavor. A Pacific coast delicacy.',
+    image: '/images/crab-dungeness.jpg',
+    weight: '1kg',
+    origin: 'Pacific Northwest',
+    inStock: true,
+  },
+  // Shellfish
+  {
+    id: 'oyster-001',
+    name: 'Fresh Oysters Selection',
+    category: 'Shellfish',
+    price: 6630,
+    description: 'Assorted premium oysters from different regions. Perfect for raw bars or cooking.',
+    image: '/images/oysters.jpg',
+    weight: '1 dozen',
+    origin: 'Various',
+    inStock: true,
+  },
+  {
+    id: 'mussel-001',
+    name: 'Mediterranean Mussels',
+    category: 'Shellfish',
+    price: 5850,
+    description: 'Fresh, tender mussels with sweet brininess. Perfect for pasta or soups.',
+    image: '/images/mussels.jpg',
+    weight: '1kg',
+    origin: 'Mediterranean Sea',
+    inStock: true,
+  },
+  {
+    id: 'clam-001',
+    name: 'Fresh Littleneck Clams',
+    category: 'Shellfish',
+    price: 6240,
+    description: 'Sweet littleneck clams. Perfect for clam chowder or steaming.',
+    image: '/images/clams.jpg',
+    weight: '1kg (12-15 clams)',
+    origin: 'Atlantic Waters',
+    inStock: true,
+  },
+  {
+    id: 'scallop-001',
+    name: 'Diver Scallops',
+    category: 'Shellfish',
+    price: 13650,
+    description: 'Succulent hand-harvested scallops. Premium quality with sweet, tender meat.',
+    image: '/images/scallops.jpg',
+    weight: '500g',
+    origin: 'Atlantic Ocean',
+    inStock: true,
+  },
+]
