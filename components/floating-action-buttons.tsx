@@ -25,7 +25,7 @@ export function FloatingActionButtons() {
   }
 
   const handleWhatsApp = () => {
-    const whatsappUrl = 'https://wa.me/234811332439'
+    const whatsappUrl = 'https://wa.me/2348111332439'
     window.open(whatsappUrl, '_blank')
   }
 

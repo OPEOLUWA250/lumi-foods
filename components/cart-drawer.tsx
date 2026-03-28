@@ -12,7 +12,7 @@ interface CartDrawerProps {
 
 export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const { items, removeItem, updateQuantity, cartTotal, clearCart } = useCart()
-  const whatsappNumber = '234811332439'
+  const whatsappNumber = '2348111332439'
 
   const handleCheckout = () => {
     const itemsList = items
