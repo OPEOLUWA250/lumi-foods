@@ -18,6 +18,19 @@ export const categories = [
   'Shellfish',
 ]
 
+/** The real categories, without the "All Products" pseudo-entry. */
+export const shopCategories = categories.filter((category) => category !== 'All Products')
+
+/** Matches a `?category=` value case-insensitively ("crab" → "Crab"). */
+export function resolveCategory(value: string | undefined) {
+  if (!value) return undefined
+  return shopCategories.find((category) => category.toLowerCase() === value.trim().toLowerCase())
+}
+
+export function categoryHref(category: string) {
+  return `/products?category=${encodeURIComponent(category)}`
+}
+
 export const products: Product[] = [
   // Fish
   {

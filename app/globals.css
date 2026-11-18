@@ -3,107 +3,28 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-  --card: #ffffff;
-  --card-foreground: #1a1a1a;
-  --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
-  --primary: #FF8C00;
-  --primary-foreground: #ffffff;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #ffffff;
-  --muted: #f5f5f5;
-  --muted-foreground: #666666;
-  --accent: #FF8C00;
-  --accent-foreground: #ffffff;
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  --border: #e5e5e5;
-  --input: #ffffff;
-  --ring: #FF8C00;
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-
-}
-
+/*
+ * LumiFoods design system — ported from Toymak Fashion.
+ *
+ * - Ink (#101820) is the single brand colour: buttons, active states, badges.
+ * - Warm off-white (#F3F1EC) for calm bands (CTA strip, accents); cool grey
+ *   (#F3F3F3) behind product photos.
+ * - Every radius token is 0, so `rounded-lg`, `rounded-xl` etc. render as
+ *   sharp corners. Only `rounded-full` (dots, swatches, pills) stays round.
+ * - `font-bold` renders at 600: confident headings without heaviness.
+ */
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-}
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-weight-bold: 600;
 
-.dark {
-  --background: #1a1a1a;
-  --foreground: #ffffff;
-  --card: #252525;
-  --card-foreground: #ffffff;
-  --popover: #252525;
-  --popover-foreground: #ffffff;
-  --primary: #FF8C00;
-  --primary-foreground: #1a1a1a;
-  --secondary: #ffffff;
-  --secondary-foreground: #1a1a1a;
-  --muted: #333333;
-  --muted-foreground: #999999;
-  --accent: #FF8C00;
-  --accent-foreground: #1a1a1a;
-  --destructive: #ff5555;
-  --destructive-foreground: #1a1a1a;
-  --border: #333333;
-  --input: #252525;
-  --ring: #FF8C00;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
-}
+  --color-primary-light: #f5f4f2;
+  --color-tertiary: #f3f3f3;
+  --color-neutral: #2b2b2b;
+  --color-sale: #e11d48;
 
-@theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -128,10 +49,6 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -140,13 +57,193 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-xs: 0rem;
+  --radius-sm: 0rem;
+  --radius-md: 0rem;
+  --radius-lg: 0rem;
+  --radius-xl: 0rem;
+  --radius-2xl: 0rem;
+  --radius-3xl: 0rem;
+  --radius-4xl: 0rem;
+}
+
+:root {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #101820;
+  --card: #ffffff;
+  --card-foreground: #101820;
+  --popover: #ffffff;
+  --popover-foreground: #101820;
+  --primary: #101820;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f1ec;
+  --secondary-foreground: #101820;
+  --muted: #f3f3f3;
+  --muted-foreground: #6b6b6b;
+  --accent: #101820;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #101820;
+  --chart-1: #101820;
+  --chart-2: #6b6b6b;
+  --chart-3: #f3f3f3;
+  --chart-4: #e5e5e5;
+  --chart-5: #d4d4d4;
+  --radius: 0rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #101820;
+  --sidebar-primary: #101820;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3f1ec;
+  --sidebar-accent-foreground: #101820;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #101820;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #0f0f0f;
+  --foreground: #ffffff;
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #101820;
+  --secondary: #2b2b2b;
+  --secondary-foreground: #ffffff;
+  --muted: #2b2b2b;
+  --muted-foreground: #a0a0a0;
+  --accent: #ffffff;
+  --accent-foreground: #101820;
+  --destructive: #f87171;
+  --destructive-foreground: #101820;
+  --border: #2b2b2b;
+  --input: #2b2b2b;
+  --ring: #ffffff;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #101820;
+  --sidebar-accent: #2b2b2b;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2b2b2b;
+  --sidebar-ring: #ffffff;
+}
+
+/* Chrome/Edge/Safari paint autofilled fields grey-blue, ignoring the white
+   input background. The inset box-shadow trick paints over it. Unlayered so
+   it wins over utilities. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #101820;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  box-shadow: 0 0 0 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* iOS Safari zooms the page when a focused field's text is under 16px.
+   Unlayered so it beats `text-sm` on phones; desktop keeps the smaller size. */
+@media (max-width: 639px) {
+  input:not([type='range']):not([type='checkbox']):not([type='radio']),
+  select,
+  textarea {
+    font-size: 16px;
+  }
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-padding-top: 7.5rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background font-sans text-foreground antialiased;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+  }
+  a,
+  button,
+  [role='button'],
+  summary {
+    touch-action: manipulation;
+  }
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  img {
+    -webkit-user-drag: none;
+  }
+}
+
+@layer components {
+  /* Product photos come from mixed sources with mismatched backdrops and
+     exposure. A light uniform grade plus a low-opacity warm multiply wash
+     pulls every photo toward one consistent tone (ported from Toymak). */
+  .product-photo {
+    position: relative;
+    isolation: isolate;
+  }
+  .product-photo img {
+    filter: saturate(0.96) contrast(1.05) brightness(1.02);
+  }
+  .product-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--secondary);
+    opacity: 0.12;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  /* Scrollable without a visible track (category tabs, drawers). */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Fixed UI that must clear the iPhone home indicator / Android gesture bar. */
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

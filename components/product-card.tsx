@@ -1,89 +1,95 @@
 'use client'
 
 import Image from 'next/image'
-import { Product } from '@/lib/products'
-import { useCart } from '@/lib/cart-context'
-import { ShoppingCart } from 'lucide-react'
-import { useState } from 'react'
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import { Check, Plus } from 'lucide-react'
+import { Price } from '@/components/price'
+import { useCart } from '@/lib/cart-context'
+import { Product } from '@/lib/products'
+import { cn } from '@/lib/utils'
 
 interface ProductCardProps {
   product: Product
+  priority?: boolean
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, priority }: ProductCardProps) {
   const { addItem } = useCart()
-  const [isAdding, setIsAdding] = useState(false)
-  const [addedSuccess, setAddedSuccess] = useState(false)
+  const [added, setAdded] = useState(false)
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const href = `/products/${product.id}`
 
-  const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault()
-    setIsAdding(true)
+  useEffect(() => () => clearTimeout(timer.current), [])
+
+  const handleQuickAdd = () => {
     addItem(product, 1)
-    
-    setTimeout(() => {
-      setIsAdding(false)
-      setAddedSuccess(true)
-      setTimeout(() => setAddedSuccess(false), 2000)
-    }, 600)
+    setAdded(true)
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => setAdded(false), 1600)
   }
 
   return (
-    <Link href={`/products/${product.id}`} className="group cursor-pointer">
-      <div className="bg-card rounded-lg overflow-hidden border border-border hover:border-primary transition-all duration-300 flex flex-col h-full hover:shadow-lg">
-        
-        {/* Product Image */}
-        <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: '1' }}>
+    <article className="group relative">
+      <Link href={href} className="block">
+        <div className="product-photo relative mb-3 aspect-[4/5] overflow-hidden bg-tertiary sm:mb-4">
           <Image
             src={product.image}
             alt={product.name}
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover group-hover:scale-110 transition-transform duration-500"
+            priority={priority}
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-cover transition duration-500 group-hover:scale-105"
           />
-        </div>
 
-        {/* Product Info - Minimal & Clean */}
-        <div className="flex flex-col flex-grow p-6">
-          
-          {/* Category Badge */}
-          <p className="text-xs font-bold text-primary uppercase tracking-wider mb-3">
-            {product.category}
-          </p>
-
-          {/* Product Name */}
-          <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
-            {product.name}
-          </h3>
-
-          {/* Description */}
-          <p className="text-sm text-muted-foreground mb-6 line-clamp-3 flex-grow">
-            {product.description}
-          </p>
-
-          {/* Price */}
-          <div className="mb-6">
-            <span className="text-3xl font-bold text-foreground">
-              ₦{product.price.toFixed(0)}
+          <div className="absolute left-2 top-2 flex flex-col items-start gap-1 sm:left-3 sm:top-3">
+            <span className="rounded-full border border-neutral/10 bg-white/90 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-neutral backdrop-blur sm:px-2.5 sm:py-1 sm:text-[10px] sm:tracking-[0.14em]">
+              {product.category}
             </span>
+            {!product.inStock && (
+              <span className="rounded-full bg-neutral-400 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-white sm:px-2.5 sm:py-1 sm:text-[10px]">
+                Sold out
+              </span>
+            )}
           </div>
 
-          {/* Add to Cart Button */}
-          <button
-            onClick={handleAddToCart}
-            className={`w-full py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-all duration-300 text-center ${
-              addedSuccess
-                ? 'bg-primary text-primary-foreground scale-95'
-                : 'bg-primary text-primary-foreground hover:bg-opacity-90 hover:shadow-md'
-            }`}
-          >
-            <ShoppingCart size={20} />
-            <span>
-              {isAdding ? 'Adding...' : addedSuccess ? 'Added!' : 'Add to Cart'}
+          {/* Hover reveal — only on devices that can actually hover */}
+          <div className="absolute inset-x-3 bottom-3 hidden translate-y-2 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 [@media(hover:hover)]:sm:block">
+            <span className="block bg-white/95 py-2.5 text-center text-xs font-semibold uppercase tracking-[0.14em] text-neutral shadow-sm backdrop-blur">
+              View product
             </span>
-          </button>
+          </div>
         </div>
+
+        <h3 className="line-clamp-2 text-sm font-bold leading-snug text-neutral transition group-hover:text-primary sm:text-base">
+          {product.name}
+        </h3>
+        <p className="mt-1 line-clamp-1 text-xs text-neutral/55 sm:text-sm">{product.description}</p>
+      </Link>
+
+      <div className="mt-2 flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 sm:mt-3">
+        <Price value={product.price} />
+        <span className="text-[11px] font-medium uppercase tracking-[0.08em] text-neutral/45 sm:text-xs">
+          {product.weight}
+        </span>
       </div>
-    </Link>
+
+      <button
+        type="button"
+        onClick={handleQuickAdd}
+        disabled={!product.inStock}
+        aria-label={added ? `${product.name} added to bag` : `Add ${product.name} to bag`}
+        className={cn(
+          'absolute right-2 top-2 flex size-9 items-center justify-center shadow-sm backdrop-blur transition sm:right-3 sm:top-3 sm:size-10',
+          'before:absolute before:-inset-1 before:content-[""] disabled:cursor-not-allowed disabled:opacity-40',
+          added ? 'border border-primary bg-primary text-white' : 'border border-neutral/10 bg-white/90 text-neutral hover:border-primary hover:bg-primary hover:text-white',
+        )}
+      >
+        {added ? <Check size={16} /> : <Plus size={18} />}
+      </button>
+      <span className="sr-only" aria-live="polite">
+        {added ? `${product.name} added to your bag` : ''}
+      </span>
+    </article>
   )
 }
