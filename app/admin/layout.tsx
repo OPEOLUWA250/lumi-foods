@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'LumiFoods Admin',
-  description: 'Private LumiFoods store operations dashboard.',
+  title: 'Lumie’s Foods Admin',
+  description: 'Private Lumie’s Foods store operations dashboard.',
   robots: { index: false, follow: false },
 }
 

@@ -49,7 +49,7 @@ export default function Home() {
         <Hero />
 
         {/* Promise strip */}
-        <section aria-label="Why LumiFoods" className="border-b border-neutral/10">
+        <section aria-label="Why Lumie’s Foods" className="border-b border-neutral/10">
           <div className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
             {promises.map(({ icon: Icon, title, copy }, i) => (
               <div

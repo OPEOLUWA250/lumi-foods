@@ -1,6 +1,6 @@
-export const SITE_NAME = 'LumiFoods'
+export const SITE_NAME = 'Lumie’s Foods'
 export const SITE_DESCRIPTION =
-  'Discover the finest quality fresh seafood delivered to your doorstep. Premium fish, shrimp, crab, and shellfish from LumiFoods.'
+  'Discover the finest quality fresh seafood delivered to your doorstep. Premium fish, shrimp, crab, and shellfish from Lumie’s Foods.'
 
 export const WHATSAPP_NUMBER = '2348111332439'
 export const WHATSAPP_DISPLAY = '+234 811 133 2439'

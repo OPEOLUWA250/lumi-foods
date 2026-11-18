@@ -32,7 +32,7 @@ export function ProductDetail({ product }: { product: Product }) {
   const handleOrderNow = () => {
     openWhatsApp(
       [
-        'Hello LumiFoods, I would like to order:',
+        'Hello Lumie’s Foods, I would like to order:',
         '',
         `• ${product.name} (${product.weight}) — ${quantity} x ${formatNaira(product.price)}`,
         `Total: ${formatNaira(product.price * quantity)}`,

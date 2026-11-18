@@ -162,7 +162,7 @@ export function Navbar() {
         <header className="border-b border-neutral-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between gap-4 lg:h-20">
-              <Link href="/" aria-label="LumiFoods home" className="shrink-0">
+              <Link href="/" aria-label="Lumie’s Foods home" className="shrink-0">
                 <Logo />
               </Link>
 

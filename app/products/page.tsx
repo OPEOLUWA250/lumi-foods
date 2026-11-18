@@ -6,7 +6,7 @@ import { resolveCategory } from '@/lib/products'
 
 export const metadata: Metadata = {
   title: 'Shop Fresh Seafood',
-  description: 'Browse premium fish, shrimp, crab and shellfish from LumiFoods, delivered fresh to your door.',
+  description: 'Browse premium fish, shrimp, crab and shellfish from Lumie’s Foods, delivered fresh to your door.',
 }
 
 type SearchParams = Promise<{ category?: string | string[]; q?: string | string[] }>

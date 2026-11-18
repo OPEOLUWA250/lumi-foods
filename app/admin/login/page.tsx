@@ -42,7 +42,7 @@ export default function AdminLoginPage() {
             <ShieldCheck size={26} />
           </div>
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary/60">LumiFoods</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary/60">Lumie’s Foods</p>
             <h1 className="text-2xl font-bold text-slate-950">Store admin</h1>
           </div>
         </div>

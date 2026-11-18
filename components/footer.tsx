@@ -33,7 +33,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-16 lg:px-8">
         <div className="mb-12 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-8">
           <div className="col-span-2 lg:col-span-1">
-            <Link href="/" aria-label="LumiFoods home" className="mb-6 inline-block">
+            <Link href="/" aria-label="Lumie’s Foods home" className="mb-6 inline-block">
               <Logo tone="light" />
             </Link>
             <p className="max-w-xs text-sm text-white/70">
@@ -86,7 +86,7 @@ export function Footer() {
 
         <div className="border-t border-white/10 pt-8">
           <p className="text-center text-sm text-white/60 md:text-left">
-            &copy; {currentYear} LumiFoods. All rights reserved.
+            &copy; {currentYear} Lumie’s Foods. All rights reserved.
           </p>
         </div>
       </div>

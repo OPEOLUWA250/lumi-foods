@@ -47,7 +47,7 @@ export function CartDrawer() {
       .map((item) => `• ${item.name} — ${item.quantity} x ${formatNaira(item.price)}`)
       .join('\n')
     const message = [
-      'Hello LumiFoods, I would like to place an order.',
+      'Hello Lumie’s Foods, I would like to place an order.',
       '',
       `Name: ${customerName.trim()}`,
       `Phone: ${customerPhone.trim()}`,

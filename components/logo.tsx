@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 
 /**
- * The LUMI FOODS lockup: square monogram + stacked, letter-spaced wordmark
+ * The LUMIE'S FOODS lockup: square monogram + stacked, letter-spaced wordmark
  * (same construction as the TOYMAK / FASHION lockup).
  * `tone="light"` is the white version for dark backgrounds.
  */
@@ -17,10 +17,10 @@ export function Logo({ tone = 'dark', className }: { tone?: 'dark' | 'light'; cl
         <span className={cn('absolute left-[34%] top-[62%] h-[13%] w-[35%]', light ? 'bg-primary' : 'bg-white')} />
       </span>
       <span aria-hidden className="flex flex-col leading-none">
-        <span className="text-[1.3rem] font-bold tracking-[0.2em] sm:text-[1.45rem]">LUMI</span>
+        <span className="text-[1.3rem] font-bold tracking-[0.12em] sm:text-[1.45rem]">LUMIE&apos;S</span>
         <span className="mt-1 text-[0.55rem] font-medium tracking-[0.62em] opacity-80 sm:text-[0.6rem]">FOODS</span>
       </span>
-      <span className="sr-only">LumiFoods</span>
+      <span className="sr-only">Lumie&apos;s Foods</span>
     </span>
   )
 }
